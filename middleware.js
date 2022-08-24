@@ -1,12 +1,3 @@
-const { NextResponse } = require("next/server");
+import { makeMiddleware } from "./middlewares/middleware";
 
-const { SOME_ENV_VARIABLE = 0 } = process.env
-
-export function middleware(req) {
-  if (SOME_ENV_VARIABLE) return NextResponse.next()
-
-  console.log("hit");
-  console.log(req.nextUrl);
-
-  return NextResponse.next();
-}
+export default makeMiddleware()
